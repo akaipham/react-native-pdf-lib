@@ -45,6 +45,64 @@ export default class PDFPage {
     return this;
   }
 
+  // TODO: congpt - nhat
+  drawSquarePoint = (options={}) => {
+    console.log('Call drawSquarePoint');
+    const rectAction = {
+      x : 0,
+      y : 0,
+      edge: 5,
+      color : '#000000',
+      ...options,
+      type: 'square_point'
+    }
+    this.page.actions.push(rectAction);
+    return this;
+  }
+
+  drawCirclePoint = (options={}) => {
+    console.log('Call drawCirclePoint');
+    const circlePointAction = {
+      x : 0,
+      y : 0,
+      radius: 5,
+      color : '#000000',
+      ...options,
+      type: 'circle_point'
+    }
+    this.page.actions.push(circlePointAction);
+    return this;
+  }
+
+  drawLine = (points, options={}) => {
+    console.log('Call drawLine');
+    const lineAction = {
+      x : 0,
+      y : 0,
+      color : '#000000',
+      strokeWidth: 2,
+      points,
+      ...options,
+      type: 'line'
+    }
+    this.page.actions.push(lineAction);
+    return this;
+  }
+
+  // drawLine = (points, options={}) => {
+  //   console.log('Call drawLine');
+  //   points.map(point => {
+  //     drawCirclePoint({
+  //       x: point.x,
+  //       y: point.y,
+  //       ...options
+  //     });
+  //   });
+  //   this.page.actions.push(lineAction);
+  //   return this;
+  // }
+  // END OF TODO
+
   drawRectangle = (options={}) => {
     const rectAction = {
       x: 0,
